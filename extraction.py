@@ -30,6 +30,7 @@ def fetch_reddit_json(subreddit, limit=25):
     Fetches posts using the public .json endpoint (The YARS method).
     No API Keys needed.
     """
+    ###########################
     # Reddit blocks requests without a User-Agent, so we fake one.
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36'}
     
@@ -59,7 +60,7 @@ def run_monitor():
         
         # Combine title and text
         text_content = f"{post['title']} {post.get('selftext', '')}"
-        
+        #####
         # Only analyze if the brand is actually mentioned (since we are scraping a subreddit)
         if TARGET_BRAND.lower() not in text_content.lower():
             continue
